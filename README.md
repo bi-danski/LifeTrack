@@ -8,5 +8,5 @@ Patient-controlled data sharing,
 
 Blockchain-ready audit trails,
 
-Integration with AI and IoT modules for smart, proactive healthcare
+Integration with AI and IoT modules for smart, proactive healthcare.
 
