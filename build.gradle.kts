@@ -17,3 +17,4 @@ buildscript {
         classpath("com.google.gms:google-services:4.4.1")  // Firebase plugin
     }
 }
+val buildToolsVersion by extra("35.0.1")
