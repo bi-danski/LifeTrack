@@ -7,13 +7,11 @@ plugins {
 
 android {
     namespace = "com.example.lifetrack"
-    //noinspection GradleDependency
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.lifetrack"
         minSdk = 24
-        //noinspection OldTargetApi
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -36,10 +34,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
-        }
+    kotlinOptions {
+        jvmTarget = "11"
     }
 
     buildFeatures {
@@ -54,13 +50,15 @@ android {
 }
 configurations.all {
     resolutionStrategy {
+        // Prefer Material3 version for androidx.lint.kotlin packages
         force("androidx.compose.material3:material3-lint:1.4.0-alpha16")
+        // Exclude the conflicting classes from ui-lint
         exclude(group = "androidx.compose.ui", module = "ui-lint")
     }
 }
 
 dependencies {
-    val composeBom = platform(libs.androidx.compose.bom)
+    val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
@@ -70,7 +68,6 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.firebase.auth)
@@ -84,9 +81,12 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.coroutines.play.services)
     implementation(libs.coroutines.core)
-//    implementation("androidx.compose.material3:material3")
-//    implementation("androidx.compose.ui:ui")
-//    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -96,7 +96,7 @@ dependencies {
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.material.icons.core)
-    implementation(libs.material.icons.extended)
+    implementation("androidx.compose.material:material-icons-core:1.5.4")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
 
 }
