@@ -1,6 +1,6 @@
 package com.example.lifetrack.view
 
-import com.example.lifetrack.data.model.User
+import com.example.lifetrack.model.data.User
 
 interface UserView{
     fun showUserData(user: User)

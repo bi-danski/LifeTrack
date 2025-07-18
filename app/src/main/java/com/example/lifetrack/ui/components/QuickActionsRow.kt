@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.tooling.preview.Preview
+//import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun QuickActionsRow(
@@ -29,9 +29,9 @@ fun QuickActionsRow(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxWidth(0.9f)
             .padding(16.dp)
-            .height(80.dp),
+            .height(90.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(8.dp),
         colors = CardDefaults.cardColors(
@@ -76,7 +76,7 @@ fun ActionCard(
 ) {
     Card(
         modifier = modifier
-            .width(100.dp)
+            .width(90.dp)
             .height(60.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(

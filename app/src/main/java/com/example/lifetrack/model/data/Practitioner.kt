@@ -1,4 +1,4 @@
-package com.example.lifetrack.data.model
+package com.example.lifetrack.model.data
 
 data class Practitioner(
     var uuid: String = java.util.UUID.randomUUID().toString(),

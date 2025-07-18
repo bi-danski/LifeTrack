@@ -1,15 +1,15 @@
 package com.example.lifetrack.presenter
 
-import com.example.lifetrack.data.model.AuthResult
-import com.example.lifetrack.data.model.Practitioner
-import com.example.lifetrack.data.model.User
-import com.example.lifetrack.data.model.Kiongozi
+import com.example.lifetrack.model.data.AuthResult
+import com.example.lifetrack.model.data.Practitioner
+import com.example.lifetrack.model.data.User
+import com.example.lifetrack.model.data.Kiongozi
 import com.example.lifetrack.view.UserView
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import com.example.lifetrack.data.repository.UserRepositoryImpl
+import com.example.lifetrack.model.repository.UserRepositoryImpl
 
 class UserPresenter(
     private val view: UserView,

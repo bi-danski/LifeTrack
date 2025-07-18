@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.lifetrack.data.repository.UserRepositoryImpl
+import com.example.lifetrack.model.repository.UserRepositoryImpl
 import kotlinx.coroutines.launch
 
 @Composable
@@ -61,11 +61,11 @@ fun RestoreScreen(navController: NavController, userRepository: UserRepositoryIm
                             val result = userRepository.sendPasswordReset(email.text)
                             isLoading = false
                             when (result) {
-                                is com.example.lifetrack.data.model.AuthResult.Success -> {
+                                is com.example.lifetrack.model.data.AuthResult.Success -> {
                                     resetSuccess = true
                                     snackbarHostState.showSnackbar("Password reset link sent to your email.")
                                 }
-                                is com.example.lifetrack.data.model.AuthResult.Failure -> {
+                                is com.example.lifetrack.model.data.AuthResult.Failure -> {
                                     resetSuccess = false
                                     errorMessage = result.message
                                     snackbarHostState.showSnackbar("Error: ${result.message}")

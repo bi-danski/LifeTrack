@@ -1,6 +1,6 @@
-package com.example.lifetrack.data.repository
+package com.example.lifetrack.model.repository
 
-import com.example.lifetrack.data.model.AuthResult
+import com.example.lifetrack.model.data.AuthResult
 
 interface AuthRepository {
     suspend fun login(email: String, password: String): AuthResult

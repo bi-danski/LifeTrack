@@ -7,12 +7,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.lifetrack.data.repository.AuthRepositoryImpl
-import com.example.lifetrack.data.repository.UserRepositoryImpl
+import com.example.lifetrack.model.repository.AuthRepositoryImpl
+import com.example.lifetrack.model.repository.UserRepositoryImpl
 import com.example.lifetrack.presenter.AuthPresenter
 import com.example.lifetrack.ui.screens.AdminScreen
 import com.example.lifetrack.ui.screens.HomeScreen
 import com.example.lifetrack.ui.screens.LoginScreen
+import com.example.lifetrack.ui.screens.MenuScreen
+import com.example.lifetrack.ui.screens.ProfileScreen
 import com.example.lifetrack.ui.screens.RegistrationScreen
 import com.example.lifetrack.ui.screens.SplashScreen
 import com.example.lifetrack.ui.screens.RestoreScreen
@@ -56,9 +58,18 @@ fun AppNavigation(scope: CoroutineScope) {
         composable("splash") {
             SplashScreen(navController)
         }
+
         composable("login") {
             LoginScreen(navController, authPresenter)
         }
+
+        composable("signup") {
+            RegistrationScreen(
+                navController = navController,
+                presenter = authPresenter
+            )
+        }
+
         composable("home") {
             HomeScreen(
                 navController = navController,
@@ -67,12 +78,28 @@ fun AppNavigation(scope: CoroutineScope) {
                  onAlma = { navController.navigate("alma") }
             )
         }
-        composable("signup") {
-            RegistrationScreen(
+
+        composable("profile"){
+            ProfileScreen(
                 navController = navController,
-                presenter = authPresenter
+//                userRepository = userRepository,
+//                onLogout = {
+//                    scope.launch {
+//                        authRepository.logout()
+//                        navController.navigate("login") {
+//                            popUpTo("home") { inclusive = true }
+//                        }
+//                    }
+//                }
             )
         }
+
+        composable("menu"){
+            MenuScreen(
+                navController = navController
+            )
+        }
+
         composable("reset") {
             RestoreScreen(
                 navController = navController,

@@ -1,11 +1,11 @@
 package com.example.lifetrack.ui.components
 
-import android.health.connect.datatypes.units.Temperature
+//import android.health.connect.datatypes.units.Temperature
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+//import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HealthSummaryCard (
-    modifier: Modifier =Modifier,
+//    modifier: Modifier = Modifier,
     bloodPressure: String ="120/80",
     heartRate: String = "78 bpm",
     temperature: String ="98.6 F"

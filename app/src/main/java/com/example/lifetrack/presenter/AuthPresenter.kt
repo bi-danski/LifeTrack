@@ -1,18 +1,19 @@
 package com.example.lifetrack.presenter
 
-import com.example.lifetrack.data.model.AuthResult
-import com.example.lifetrack.data.repository.AuthRepository
+import com.example.lifetrack.model.data.AuthResult
+//import com.example.lifetrack.model.network.KtorClientFactory
+import com.example.lifetrack.model.repository.AuthRepository
 import com.example.lifetrack.view.AuthView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.cancel
-import android.util.Log
 
 class AuthPresenter(
     var view: AuthView?,
     private val repository: AuthRepository,
+//    private val httpClient: KtorClientFactory = KtorClientFactory(),
     private val scope: CoroutineScope
 ) {
 

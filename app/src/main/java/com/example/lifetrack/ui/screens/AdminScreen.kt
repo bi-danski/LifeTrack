@@ -13,10 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.lifetrack.data.model.Kiongozi
-import com.example.lifetrack.data.model.Practitioner
-import com.example.lifetrack.data.model.User
-import com.example.lifetrack.data.repository.UserRepositoryImpl
+import com.example.lifetrack.model.data.Kiongozi
+import com.example.lifetrack.model.data.Practitioner
+import com.example.lifetrack.model.data.User
+import com.example.lifetrack.model.repository.UserRepositoryImpl
 import com.example.lifetrack.presenter.UserPresenter
 import com.example.lifetrack.view.UserView
 

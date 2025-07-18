@@ -1,9 +1,9 @@
-package com.example.lifetrack.data.repository
+package com.example.lifetrack.model.repository
 
-import com.example.lifetrack.data.model.AuthResult
-import com.example.lifetrack.data.model.Practitioner
-import com.example.lifetrack.data.model.User
-import com.example.lifetrack.data.model.Kiongozi
+import com.example.lifetrack.model.data.AuthResult
+import com.example.lifetrack.model.data.Practitioner
+import com.example.lifetrack.model.data.User
+import com.example.lifetrack.model.data.Kiongozi
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.tasks.await

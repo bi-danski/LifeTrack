@@ -17,8 +17,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.lifetrack.presenter.AuthPresenter
-import com.example.lifetrack.ui.components.LifeTrackTopBar
+import com.example.lifetrack.ui.components.LTBrandAppBar
 import com.example.lifetrack.ui.state.UIState
+import com.example.lifetrack.view.AuthView
 import kotlinx.coroutines.launch
 
 
@@ -26,14 +27,13 @@ import kotlinx.coroutines.launch
 fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
     val coroutineScope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
-
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisibility by remember { mutableStateOf(false) }
     var uiState by remember { mutableStateOf<UIState>(UIState.Idle) }
 
     LaunchedEffect(presenter) {
-        presenter.view = object : com.example.lifetrack.view.AuthView {
+        presenter.view = object : AuthView {
             override fun showLoading(isLoading: Boolean, message: String?) {
                 uiState = if (isLoading) UIState.Loading else UIState.Idle
             }
@@ -46,7 +46,7 @@ fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
 
             override fun onAuthSuccess() {
                 uiState = UIState.Success
-                navController.navigate("admin") {
+                navController.navigate("home") {
                     popUpTo("login") { inclusive = true }
                 }
             }
@@ -71,18 +71,18 @@ fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
                 .background(MaterialTheme.colorScheme.background),
             contentAlignment = Alignment.Center
         ) {
-            LifeTrackTopBar(
+            LTBrandAppBar(
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .padding(top = 32.dp)
-            )
+                    .padding(top = 32.dp),
 
+            )
 //            Spacer(modifier = Modifier.height(24.dp))
 
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.55f)
+                    .fillMaxHeight(0.75f)
                     .wrapContentHeight()
                     .align(Alignment.BottomCenter),
                 verticalArrangement = Arrangement.Center,
@@ -96,8 +96,7 @@ fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
                     shape = RoundedCornerShape(8.dp),
                     modifier = Modifier.fillMaxWidth(0.85f) // 85% width
                 )
-
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(28.dp))
 
                 OutlinedTextField(
                     value = password,
@@ -115,8 +114,7 @@ fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
                     shape = RoundedCornerShape(8.dp),
                     modifier = Modifier.fillMaxWidth(0.85f) // 85% width
                 )
-
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(48.dp))
 
                 Button(
                     onClick = {
@@ -145,7 +143,7 @@ fun LoginScreen(navController: NavController, presenter: AuthPresenter) {
                         Text(text = "Login", style = MaterialTheme.typography.labelLarge)
                     }
                 }
-
+//                Spacer(modifier = Modifier.height(24.dp))
                 TextButton(onClick = { navController.navigate("reset") }) {
                     Text(
                         text = "Forgot Password?",

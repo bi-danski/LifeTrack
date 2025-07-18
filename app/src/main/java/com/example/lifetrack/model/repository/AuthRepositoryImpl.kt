@@ -1,7 +1,7 @@
-package com.example.lifetrack.data.repository
+package com.example.lifetrack.model.repository
 
-import com.example.lifetrack.data.model.AuthResult
-import com.example.lifetrack.data.model.User
+import com.example.lifetrack.model.data.AuthResult
+import com.example.lifetrack.model.data.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException

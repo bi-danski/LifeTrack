@@ -1,4 +1,4 @@
-package com.example.lifetrack.data.model
+package com.example.lifetrack.model.data
 
 data class User(
     var uuid: String = "",

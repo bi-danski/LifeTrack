@@ -22,7 +22,8 @@ fun HomeScreen(
     onAlma: () -> Unit
 ) {
     Scaffold(
-        topBar = { LifeTrackTopBar() }
+        containerColor = androidx.compose.material3.MaterialTheme.colorScheme.background,
+        topBar = { LifeTrackTopBar(onMenuClick = { navController.navigate("menu") }, onProfileClick = { navController.navigate("profile") }) }
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
@@ -32,7 +33,10 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
-                Text("Welcome Back!", style = androidx.compose.material3.MaterialTheme.typography.headlineSmall)
+                Text(
+                    "Welcome Back!",
+                    style = androidx.compose.material3.MaterialTheme.typography.headlineSmall,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Justify)
             }
             item {
                 HealthSummaryCard()
@@ -44,7 +48,6 @@ fun HomeScreen(
                     onAlmaClick = onAlma
                 )
             }
-            // You can add more items here later
         }
     }
 }
